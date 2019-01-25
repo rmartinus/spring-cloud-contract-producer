@@ -1,0 +1,19 @@
+description: |
+  Should get my movie
+request:
+  method: GET
+  url: /movie/1
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body: '{
+    "movieId": "1",
+    "name": "My Movie",
+    "genre": "Action",
+    "year": "2019",
+  }'
+  matchers:
+    headers:
+    - key: Content-Type
+      regex: application/json.*
