@@ -1,0 +1,16 @@
+description: |
+  Should save my movie
+request:
+  method: POST
+  url: /movie
+  headers:
+    Content-Type: application/json
+  body: '{
+    "name": "My Movie",
+    "genre": "Action",
+    "year": "2019",
+  }'
+response:
+  status: 201
+  headers:
+    Location: "/movie/1"

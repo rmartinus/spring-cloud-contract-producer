@@ -8,7 +8,7 @@ response:
   headers:
     Content-Type: application/json
   body: '{
-    "movieId": "1",
+    "id": "1",
     "name": "My Movie",
     "genre": "Action",
     "year": "2019",
