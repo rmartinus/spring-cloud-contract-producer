@@ -6,18 +6,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
-
 @RestController
 public class MovieController {
 
     @PostMapping(path = "/movie")
     public ResponseEntity<String> saveMovie() {
-        return ResponseEntity.created(URI.create("/movie/1")).build();
+        throw new UnsupportedOperationException("not implemented yet");
     }
 
     @GetMapping(path = "/movie/{movieId}")
     public ResponseEntity<Movie> getMovie(@PathVariable String movieId) {
-        return ResponseEntity.ok(new Movie(movieId, "My Movie", "Action", "2019"));
+        throw new UnsupportedOperationException("not implemented yet");
     }
 }
