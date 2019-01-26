@@ -2,13 +2,15 @@
 
 ### Publishing artifact to artifactory
 ```$xslt
+$ ./mvnw clean package
 $ cd docker
 $ docker-compose up --build -d
 
-export APPLICATION_BASE_URL=http://192.168.0.2:8080
+export MY_IP=`ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'`
+export APPLICATION_BASE_URL=http://$MY_IP:8080
 export PROJECT_NAME=producer
 export PROJECT_GROUP=com.example.spring.cloud.contract
-export REPO_WITH_BINARIES_URL=http://192.168.0.2:8081/artifactory/libs-release-local
+export REPO_WITH_BINARIES_URL=http://$MY_IP:8081/artifactory/libs-release-local
 export PROJECT_VERSION=0.0.1.RELEASE
 export CONTRACTS=/Users/robbiemartinus/dev/rmartinus/spring-cloud-contract-producer/src/test/resources/contracts/
 export CONTRACT_OUTPUT=/Users/robbiemartinus/dev/rmartinus/spring-cloud-contract-producer/src/test/resources/contracts/output
