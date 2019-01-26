@@ -18,7 +18,7 @@ public abstract class AbstractMvcTest {
     private MovieController movieController;
 
     @Before
-    public void setup() throws JsonProcessingException {
+    public void setup() {
         RestAssuredMockMvc.standaloneSetup(movieController);
     }
 }
