@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureWireMock(port = 8081)
+@AutoConfigureWireMock(port = 8085)
 public class ProducerApplicationTests {
 
     @Autowired
@@ -24,14 +24,14 @@ public class ProducerApplicationTests {
     private ObjectMapper objectMapper;
 
     @Test
-    public void contextLoads() throws JsonProcessingException {
+    public void shouldReturnMovie() throws JsonProcessingException {
         WireMock.stubFor(
                 WireMock.get(WireMock.urlEqualTo("/movie/1"))
                         .willReturn(WireMock.aResponse()
                                 .withBody(objectMapper.writeValueAsString(new Movie("1", "fav movie", "thriller", "2018")))
                                 .withStatus(200))
         );
-        ResponseEntity<String> entity = restTemplate.getForEntity("http://localhost:8081/movie/1", String.class);
+        ResponseEntity<String> entity = restTemplate.getForEntity("http://localhost:8085/movie/1", String.class);
         BDDAssertions.then(entity.getStatusCodeValue()).isEqualTo(200);
         BDDAssertions.then(entity.getBody()).isEqualTo(objectMapper.writeValueAsString(new Movie("1", "fav movie", "thriller", "2018")));
     }

@@ -71,7 +71,7 @@
                 <artifactId>spring-cloud-contract-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <baseClassForTests>com.example.spring.cloud.contract.producer.MvcTest</baseClassForTests>
+                    <baseClassForTests>com.example.spring.cloud.contract.producer.AbstractMvcTest</baseClassForTests>
                 </configuration>
             </plugin>
         </plugins>

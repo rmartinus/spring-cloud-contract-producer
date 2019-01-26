@@ -1,14 +1,10 @@
 # spring-cloud-contract-producer
 
-### Build and run artifactory
-```bash
-$ docker build -f docker/Dockerfile-artifactory -t artifactory .
-$ docker run -p 8081:8081 artifactory -d
-```
-
 ### Publishing artifact to artifactory
 ```bash
 $ ./mvnw clean package
+$ cd docker
+$ docker-compose up --build -d
 
 export MY_IP=`ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'`
 export APPLICATION_BASE_URL=http://$MY_IP:8080
