@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "movie")
 public class MovieEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private String name;
     private String genre;
