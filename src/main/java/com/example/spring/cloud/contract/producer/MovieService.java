@@ -1,14 +1,21 @@
 package com.example.spring.cloud.contract.producer;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MovieService {
+
+    @Autowired
+    private MovieRepository movieRepository;
+
     public Long saveMovie(Movie movie) {
-        return 1L;
+        MovieEntity save = movieRepository.save(new MovieEntity(1L, movie.getName(), movie.getGenre(), movie.getYear()));
+        return save.getId();
     }
 
     public Movie getMovie(String movieId) {
-        return new Movie("1", "My Movie", "Action", "2019");
+        MovieEntity movieEntity = movieRepository.findById(Long.valueOf(movieId)).get();
+        return new Movie(String.valueOf(movieId), movieEntity.getName(), movieEntity.getGenre(), movieEntity.getYear());
     }
 }

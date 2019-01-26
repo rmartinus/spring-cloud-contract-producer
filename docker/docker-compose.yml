@@ -1,11 +1,29 @@
 version: '3'
 services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.0.14
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_USERNAME: root
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - my-network
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    logging:
+      driver: json-file
   producer:
     container_name: producer
     build:
       context: ..
       dockerfile: docker/Dockerfile
     image: producer:latest
+    depends_on:
+      - mysql
     restart: always
     networks:
       - my-network

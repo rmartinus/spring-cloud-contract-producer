@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS movie;
+
+CREATE TABLE movie (
+    id BIGINT IDENTITY NOT NULL PRIMARY KEY,
+    name VARCHAR(255),
+    genre VARCHAR(255),
+    year VARCHAR(255)
+);
