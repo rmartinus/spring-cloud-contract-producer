@@ -1,0 +1,35 @@
+version: '3'
+services:
+  producer:
+    container_name: producer
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: producer:latest
+    restart: always
+    networks:
+      - my-network
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    logging:
+      driver: json-file
+  artifactory:
+    container_name: artifactory
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile-artifactory
+    image: artifactory:latest
+    restart: always
+    networks:
+      - my-network
+    expose:
+      - 8081
+    ports:
+      - 8081:8081
+    logging:
+      driver: json-file
+networks:
+  my-network:
+    driver: bridge
