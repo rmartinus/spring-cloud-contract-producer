@@ -10,7 +10,7 @@ public class MovieService {
     private MovieRepository movieRepository;
 
     public Long saveMovie(Movie movie) {
-        MovieEntity save = movieRepository.save(new MovieEntity(1L, movie.getName(), movie.getGenre(), movie.getYear()));
+        MovieEntity save = movieRepository.save(new MovieEntity(null, movie.getName(), movie.getGenre(), movie.getYear()));
         return save.getId();
     }
 
