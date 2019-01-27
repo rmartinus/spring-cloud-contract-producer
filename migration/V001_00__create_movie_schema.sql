@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS movie (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    genre VARCHAR(255),
+    year VARCHAR(255)
+);

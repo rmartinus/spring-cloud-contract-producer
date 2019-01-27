@@ -1,4 +1,4 @@
-FROM mysql:8.0.14
+FROM mysql:5.7.25
 MAINTAINER rmartinus
 ENV MYSQL_DATABASE=root \
     MYSQL_ROOT_PASSWORD=root

@@ -1,5 +1,10 @@
 # spring-cloud-contract-producer
 
+### Flyway
+```bash
+$ ./mvnw flyway:migrate -Dflyway.configFile=src/main/resources/flyway-docker.properties
+```
+
 ### Publishing artifact to artifactory
 ```bash
 $ ./mvnw clean package
