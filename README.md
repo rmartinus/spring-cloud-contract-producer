@@ -1,11 +1,16 @@
 # spring-cloud-contract-producer
 
+### Running flyway manually
+```bash
+$ ./mvnw flyway:migrate -Dflyway.configFile=src/main/resources/flyway-docker.properties
+```
+
 ### Publishing artifact to artifactory
 ```bash
 $ ./mvnw clean package
 $ cd docker
 $ docker-compose up --build -d
-$ ./mvnw flyway:migrate -Dflyway.configFile=src/main/resources/flyway-docker.properties
+$ cd ..
 $ curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"name":"My Movie","genre":"Action","year":"2019"}' \
