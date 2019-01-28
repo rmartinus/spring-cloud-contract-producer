@@ -1,6 +1,5 @@
 package com.example.spring.cloud.contract.producer;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Before;
 import org.junit.runner.RunWith;
