@@ -10,11 +10,6 @@ $ ./mvnw flyway:migrate -Dflyway.configFile=src/main/resources/flyway-docker.pro
 $ ./mvnw clean package
 $ cd docker
 $ docker-compose up --build -d
-$ cd ..
-$ curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"name":"My Movie","genre":"Action","year":"2019"}' \
-  http://localhost:8080/movie
   
 export MY_IP=`ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'`
 export APPLICATION_BASE_URL=http://$MY_IP:8080
